@@ -56,6 +56,8 @@ since templates are parsed as standard JavaScript [Template
 Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 the same functionality is expected
 
+Variables are accessible `data` context
+
 <details><summary>Example</summary>
 
 ###### `index.js`
@@ -89,6 +91,8 @@ Hello ahmad
 Helpers are essentially functions that can be called within the
 template.
 
+All helper functions are available through the `fn` context
+
 <details><summary>Example</summary>
 
 ###### `index.js`
@@ -110,7 +114,7 @@ console.log(result)
 ###### `template.jstl`
 
 ```text
-Hello ${capitalize(data.name)}
+Hello ${fn.capitalize(data.name)}
 ```
 
 ###### result
@@ -366,8 +370,8 @@ engine.render('nested/template', { foo: 'bar' }) // => ./templates/nested/templa
 [license-url]: LICENSE
 [license-img]: https://badgen.net/github/license/ahmadnassri/node-template-literals-engine
 
-[npm-url]: https://www.npmjs.com/package/ahmadnassri/template-literals-engine
-[npm-img]: https://badgen.net/npm/v/ahmadnassri/template-literals-engine
+[npm-url]: https://www.npmjs.com/package/@ahmadnassri/template-literals-engine
+[npm-img]: https://badgen.net/npm/v/@ahmadnassri/template-literals-engine
 
 [super-linter-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Asuper-linter
 [super-linter-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/super-linter/badge.svg
