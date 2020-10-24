@@ -1,0 +1,5 @@
+---
+name: ahmad
+---
+
+hello ${data.name}

@@ -1,34 +1,17 @@
-# JS Template Literals Engine
-
-a very basic, and straight to the point Template Engine using JS
-Template Literals
-
-[![license][license-img]][license-url]
-[![version][npm-img]][npm-url]
-[![super linter][super-linter-img]][super-linter-url]
-[![test][test-img]][test-url]
-[![release][release-img]][release-url]
-
 ## Why
 
-[Template
-Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-*(also known as "Template strings")* are a familiar and simple to use
-method to run embedded expressions and string interpolation, which are
-the primary functionality of a Template Engine.
+[Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) _(also known as "Template strings")_ are a familiar and simple to use method to run embedded expressions and string interpolation, which are the primary functionality of a Template Engine.
 
-This library wraps template literals with traditional techniques
-*(layouts, partials, helpers, etc ...)* to facilitates the usage through
-a structured file format (`.jstl`)
+This library wraps template literals with traditional techniques _(layouts, partials, helpers, etc ...)_ to facilitates the usage through a structured file format (`.jstl`)
 
 ## What
 
 Features:
 
-  - Layouts: native support for layouts
-  - Partials Support: include files and pass data with ease
-  - Fast: Templates are cached by default
-  - Extensible: extensible with custom helpers
+- Layouts: native support for layouts
+- Partials Support: include files and pass data with ease
+- Fast: Templates are cached by default
+- Extensible: extensible with custom helpers
 
 ## How
 
@@ -36,13 +19,13 @@ Features:
 
 ###### `template.jstl`
 
-``` text
+```text
 hello ${data.name}
 ```
 
 ###### `index.js`
 
-``` js
+```js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine(options)
@@ -52,9 +35,9 @@ engine.render('template', { name: 'ahmad' })
 
 #### String Interpolation
 
-since templates are parsed as standard JavaScript [Template
-Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-the same functionality is expected
+since templates are parsed as standard JavaScript [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) the same functionality is expected
+
+Variables are accessible `data` context
 
 <details><summary>Example</summary>
 
@@ -86,8 +69,9 @@ Hello ahmad
 
 #### Helper functions
 
-Helpers are essentially functions that can be called within the
-template.
+Helpers are essentially functions that can be called within the template.
+
+All helper functions are available through the `fn` context
 
 <details><summary>Example</summary>
 
@@ -110,7 +94,7 @@ console.log(result)
 ###### `template.jstl`
 
 ```text
-Hello ${capitalize(data.name)}
+Hello ${fn.capitalize(data.name)}
 ```
 
 ###### result
@@ -125,13 +109,11 @@ Hello Ahmad
 
 ##### `fn.render(templateName, [dataObject])`
 
-Behaves exactly like `Engine.render` by including other template file:
-`templateName` inline
+Behaves exactly like `Engine.render` by including other template file: `templateName` inline
 
 ##### `fn.apply(templateName, [dataArray])`
 
-enumerates over `dataArray` and applies each item to a newly rendered
-instance of `templateName`
+enumerates over `dataArray` and applies each item to a newly rendered instance of `templateName`
 
 <details><summary>Example</summary>
 
@@ -213,8 +195,7 @@ $ node index.js
 
 #### Front Matter
 
-Every template file can optionally include a front matter block, which
-is parsed and included into the `data` context
+Every template file can optionally include a front matter block, which is parsed and included into the `data` context
 
 <details><summary>Example</summary>
 
@@ -249,12 +230,9 @@ Hello ahmad
 
 #### Layouts
 
-defining a `layout` property in the Front Matter block of a template
-will result in rendering that layout first and including the current
-template as content.
+defining a `layout` property in the Front Matter block of a template will result in rendering that layout first and including the current template as content.
 
-Layouts can infinitely cascade, the only limit is your system
-resources\!
+Layouts can infinitely cascade, the only limit is your system resources!
 
 <details><summary>Example</summary>
 
@@ -315,22 +293,23 @@ $ node index.js
 ```
 </details>
 
+
 ## API
 
 #### Constructor `new Engine([optionsObject])`
 
 returns a new instance of the template engine class
 
-| name            | type     | required | default         | description                                                                                                                              |
-| --------------- | -------- | -------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **`root`**      | `String` | ✖        | `process.cwd()` | path to look for template files                                                                                                          |
-| **`extension`** | `String` | ✖        | `jstl`          | template file extension                                                                                                                  |
-| **`helpers`**   | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates                                                                                       |
-| **`matter`**    | `Object` | ✖        | `{}`            | [Options](https://github.com/jonschlinkert/gray-matter#options) to pass to [`gray-matter`](https://github.com/jonschlinkert/gray-matter) |
+| name            | type     | required | default         | description                                        |
+| --------------- | -------- | -------- | --------------- | -------------------------------------------------- |
+| **`root`**      | `String` | ✖        | `process.cwd()` | path to look for template files                    |
+| **`extension`** | `String` | ✖        | `jstl`          | template file extension                            |
+| **`helpers `**  | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates |
+| **`matter `**   | `Object` | ✖        | `{}`            | [Options][gm-options] to pass to [`gray-matter`]   |
 
 ###### example:
 
-``` js
+```js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine({
@@ -345,12 +324,11 @@ const engine = new Engine({
 
 #### Method: `render(templateName, [dataObject])`
 
-parses the content of the file at `${templateName}.jstl` and passes
-`dataObject` to it, returns the processed output string
+parses the content of the file at `${templateName}.jstl` and passes `dataObject` to it, returns the processed output string
 
 ###### example:
 
-``` js
+```js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine({ root: 'templates' })
@@ -359,21 +337,5 @@ engine.render('a-template') // => ./templates/a-template.jstl
 engine.render('nested/template', { foo: 'bar' }) // => ./templates/nested/template.jstl
 ```
 
-----
-> Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
-> Twitter: [@AhmadNassri](https://twitter.com/AhmadNassri)
-
-[license-url]: LICENSE
-[license-img]: https://badgen.net/github/license/ahmadnassri/node-template-literals-engine
-
-[npm-url]: https://www.npmjs.com/package/ahmadnassri/template-literals-engine
-[npm-img]: https://badgen.net/npm/v/ahmadnassri/template-literals-engine
-
-[super-linter-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Asuper-linter
-[super-linter-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/super-linter/badge.svg
-
-[test-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Atest
-[test-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/test/badge.svg
-
-[release-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Arelease
-[release-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/release/badge.svg
+[`gray-matter`]: https://github.com/jonschlinkert/gray-matter
+[gm-options]: https://github.com/jonschlinkert/gray-matter#options

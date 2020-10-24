@@ -1,0 +1,9 @@
+
+version: 2.0
+
+id: ahmadnassri/template-literals-engine
+
+about:
+  title: JS Template Literals Engine
+  description: a very basic, and straight to the point Template Engine using JS Template Literals
+  repository: ahmadnassri/node-template-literals-engine

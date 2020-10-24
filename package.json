@@ -1,0 +1,37 @@
+{
+  "version": "0.0.0-semantically-released",
+  "name": "@ahmadnassri/template-literals-engine",
+  "description": "Feed it a JSON Spec, it will spit out a lightweight HTTP client!",
+  "author": "Ahmad Nassri <email@ahmadnassri.com> (https://www.ahmadnassri.com)",
+  "homepage": "https://github.com/ahmadnassri/node-template-literals-engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadnassri/node-template-literals-engine.git"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "oas",
+    "request"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/node-template-literals-engine/issues"
+  },
+  "scripts": {
+    "test": "tap test --no-coverage",
+    "test:watch": "tap test --watch",
+    "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
+  },
+  "devDependencies": {
+    "tap": "^14.10.8"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.2"
+  }
+}
