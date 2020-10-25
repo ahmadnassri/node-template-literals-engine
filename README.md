@@ -1,7 +1,6 @@
 # JS Template Literals Engine
 
-a very basic, and straight to the point Template Engine using JS
-Template Literals
+a very basic, and straight to the point Template Engine using JS Template Literals
 
 [![license][license-img]][license-url]
 [![release][release-img]][release-url]
@@ -11,15 +10,9 @@ Template Literals
 
 ## Why
 
-[Template
-Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-*(also known as "Template strings")* are a familiar and simple to use
-method to run embedded expressions and string interpolation, which are
-the primary functionality of a Template Engine.
+[Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) *(also known as "Template strings")* are a familiar and simple to use method to run embedded expressions and string interpolation, which are the primary functionality of a Template Engine.
 
-This library wraps template literals with traditional techniques
-*(layouts, partials, helpers, etc ...)* to facilitates the usage through
-a structured file format (`.jstl`)
+This library wraps template literals with traditional techniques *(layouts, partials, helpers, etc ...)* to facilitates the usage through a structured file format (`.jstl`)
 
 ## What
 
@@ -52,9 +45,7 @@ engine.render('template', { name: 'ahmad' })
 
 #### String Interpolation
 
-since templates are parsed as standard JavaScript [Template
-Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-the same functionality is expected
+since templates are parsed as standard JavaScript [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) the same functionality is expected
 
 Variables are accessible `data` context
 
@@ -88,8 +79,7 @@ Hello ahmad
 
 #### Helper functions
 
-Helpers are essentially functions that can be called within the
-template.
+Helpers are essentially functions that can be called within the template.
 
 All helper functions are available through the `fn` context
 
@@ -129,13 +119,11 @@ Hello Ahmad
 
 ##### `fn.render(templateName, [dataObject])`
 
-Behaves exactly like `Engine.render` by including other template file:
-`templateName` inline
+Behaves exactly like `Engine.render` by including other template file: `templateName` inline
 
 ##### `fn.apply(templateName, [dataArray])`
 
-enumerates over `dataArray` and applies each item to a newly rendered
-instance of `templateName`
+enumerates over `dataArray` and applies each item to a newly rendered instance of `templateName`
 
 <details><summary>Example</summary>
 
@@ -217,8 +205,7 @@ $ node index.js
 
 #### Front Matter
 
-Every template file can optionally include a front matter block, which
-is parsed and included into the `data` context
+Every template file can optionally include a front matter block, which is parsed and included into the `data` context
 
 <details><summary>Example</summary>
 
@@ -253,12 +240,9 @@ Hello ahmad
 
 #### Layouts
 
-defining a `layout` property in the Front Matter block of a template
-will result in rendering that layout first and including the current
-template as content.
+defining a `layout` property in the Front Matter block of a template will result in rendering that layout first and including the current template as content.
 
-Layouts can infinitely cascade, the only limit is your system
-resources\!
+Layouts can infinitely cascade, the only limit is your system resources\!
 
 <details><summary>Example</summary>
 
@@ -349,8 +333,7 @@ const engine = new Engine({
 
 #### Method: `render(templateName, [dataObject])`
 
-parses the content of the file at `${templateName}.jstl` and passes
-`dataObject` to it, returns the processed output string
+parses the content of the file at `${templateName}.jstl` and passes `dataObject` to it, returns the processed output string
 
 ###### example:
 
