@@ -4,10 +4,10 @@ a very basic, and straight to the point Template Engine using JS
 Template Literals
 
 [![license][license-img]][license-url]
-[![version][npm-img]][npm-url]
+[![release][release-img]][release-url]
 [![super linter][super-linter-img]][super-linter-url]
 [![test][test-img]][test-url]
-[![release][release-img]][release-url]
+[![semantic][semantic-img]][semantic-url]
 
 ## Why
 
@@ -370,8 +370,8 @@ engine.render('nested/template', { foo: 'bar' }) // => ./templates/nested/templa
 [license-url]: LICENSE
 [license-img]: https://badgen.net/github/license/ahmadnassri/node-template-literals-engine
 
-[npm-url]: https://www.npmjs.com/package/@ahmadnassri/template-literals-engine
-[npm-img]: https://badgen.net/npm/v/@ahmadnassri/template-literals-engine
+[release-url]: https://github.com/ahmadnassri/node-template-literals-engine/releases
+[release-img]: https://badgen.net/github/release/ahmadnassri/node-template-literals-engine
 
 [super-linter-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Asuper-linter
 [super-linter-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/super-linter/badge.svg
@@ -379,5 +379,5 @@ engine.render('nested/template', { foo: 'bar' }) // => ./templates/nested/templa
 [test-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Atest
 [test-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/test/badge.svg
 
-[release-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Arelease
-[release-img]: https://github.com/ahmadnassri/node-template-literals-engine/workflows/release/badge.svg
+[semantic-url]: https://github.com/ahmadnassri/node-template-literals-engine/actions?query=workflow%3Arelease
+[semantic-img]: https://badgen.net/badge/📦/semantically%20released/blue
