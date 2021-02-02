@@ -18,10 +18,10 @@ This library wraps template literals with traditional techniques *(layouts, part
 
 Features:
 
-  - Layouts: native support for layouts
-  - Partials Support: include files and pass data with ease
-  - Fast: Templates are cached by default
-  - Extensible: extensible with custom helpers
+-   Layouts: native support for layouts
+-   Partials Support: include files and pass data with ease
+-   Fast: Templates are cached by default
+-   Extensible: extensible with custom helpers
 
 ## How
 
@@ -53,7 +53,7 @@ Variables are accessible `data` context
 
 ###### `index.js`
 
-```js
+``` js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine()
@@ -65,16 +65,17 @@ console.log(result)
 
 ###### `template.jstl`
 
-```text
+``` text
 Hello ${data.name}
 ```
 
 ###### result
 
-```bash
+``` bash
 $ node index.js
 Hello ahmad
 ```
+
 </details>
 
 #### Helper functions
@@ -87,7 +88,7 @@ All helper functions are available through the `fn` context
 
 ###### `index.js`
 
-```js
+``` js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine({
@@ -103,16 +104,17 @@ console.log(result)
 
 ###### `template.jstl`
 
-```text
+``` text
 Hello ${fn.capitalize(data.name)}
 ```
 
 ###### result
 
-```bash
+``` bash
 $ node index.js
 Hello Ahmad
 ```
+
 </details>
 
 #### Built-in Helpers
@@ -129,7 +131,7 @@ enumerates over `dataArray` and applies each item to a newly rendered instance o
 
 ###### `index.js`
 
-```js
+``` js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine()
@@ -157,7 +159,7 @@ console.log(result)
 
 ###### `page.jstl`
 
-```text
+``` text
 ${ fn.include('header') }
 
 <h1>List of actors who have played the Doctor</h1>
@@ -171,13 +173,13 @@ ${ fn.include('footer') }
 
 ##### `doctor.jstl`
 
-```text
+``` text
 <li>${data.name} - first appeared in ${data.year}</li>
 ```
 
 ###### result
 
-```text
+``` text
 $ node index.js
 <body>
 
@@ -201,6 +203,7 @@ $ node index.js
 
 </body>
 ```
+
 </details>
 
 #### Front Matter
@@ -211,7 +214,7 @@ Every template file can optionally include a front matter block, which is parsed
 
 ###### `index.js`
 
-```js
+``` js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine()
@@ -223,7 +226,7 @@ console.log(result)
 
 ###### `template.jstl`
 
-```text
+``` text
 ---
 name: ahmad
 ---
@@ -232,23 +235,24 @@ Hello ${data.name}
 
 ###### result
 
-```bash
+``` bash
 $ node index.js
 Hello ahmad
 ```
+
 </details>
 
 #### Layouts
 
 defining a `layout` property in the Front Matter block of a template will result in rendering that layout first and including the current template as content.
 
-Layouts can infinitely cascade, the only limit is your system resources\!
+Layouts can infinitely cascade, the only limit is your system resources!
 
 <details><summary>Example</summary>
 
 ###### `index.js`
 
-```js
+``` js
 const Engine = require('@ahmadnassri/template-literals-engine')
 
 const engine = new Engine()
@@ -260,7 +264,7 @@ console.log(result)
 
 ###### `template.jstl`
 
-```text
+``` text
 ---
 layout: layouts/welcome
 ---
@@ -270,7 +274,7 @@ layout: layouts/welcome
 
 ###### `layouts/welcome.jstl`
 
-```text
+``` text
 ---
 layout: layouts/base
 ---
@@ -282,7 +286,7 @@ ${data.content}
 
 ###### `layouts/base.jstl`
 
-```text
+``` text
 <html>
   <body>
     ${data.content}
@@ -292,7 +296,7 @@ ${data.content}
 
 ###### result
 
-```text
+``` text
 $ node index.js
 <html>
   <body>
@@ -301,6 +305,7 @@ $ node index.js
   </body>
 </html>
 ```
+
 </details>
 
 ## API
@@ -310,11 +315,11 @@ $ node index.js
 returns a new instance of the template engine class
 
 | name            | type     | required | default         | description                                                                                                                              |
-| --------------- | -------- | -------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------|----------|----------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | **`root`**      | `String` | ✖        | `process.cwd()` | path to look for template files                                                                                                          |
 | **`extension`** | `String` | ✖        | `jstl`          | template file extension                                                                                                                  |
-| **`helpers`**   | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates                                                                                       |
-| **`matter`**    | `Object` | ✖        | `{}`            | [Options](https://github.com/jonschlinkert/gray-matter#options) to pass to [`gray-matter`](https://github.com/jonschlinkert/gray-matter) |
+| **`helpers `**  | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates                                                                                       |
+| **`matter `**   | `Object` | ✖        | `{}`            | [Options](https://github.com/jonschlinkert/gray-matter#options) to pass to [`gray-matter`](https://github.com/jonschlinkert/gray-matter) |
 
 ###### example:
 
