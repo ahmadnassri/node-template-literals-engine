@@ -10,7 +10,7 @@ a very basic, and straight to the point Template Engine using JS Template Litera
 
 ## Why
 
-[Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) *(also known as "Template strings")* are a familiar and simple to use method to run embedded expressions and string interpolation, which are the primary functionality of a Template Engine.
+[Template Literals][] *(also known as "Template strings")* are a familiar and simple to use method to run embedded expressions and string interpolation, which are the primary functionality of a Template Engine.
 
 This library wraps template literals with traditional techniques *(layouts, partials, helpers, etc ...)* to facilitates the usage through a structured file format (`.jstl`)
 
@@ -45,7 +45,7 @@ engine.render('template', { name: 'ahmad' })
 
 #### String Interpolation
 
-since templates are parsed as standard JavaScript [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) the same functionality is expected
+since templates are parsed as standard JavaScript [Template Literals][] the same functionality is expected
 
 Variables are accessible `data` context
 
@@ -314,12 +314,12 @@ $ node index.js
 
 returns a new instance of the template engine class
 
-| name            | type     | required | default         | description                                                                                                                              |
-|-----------------|----------|----------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **`root`**      | `String` | ✖        | `process.cwd()` | path to look for template files                                                                                                          |
-| **`extension`** | `String` | ✖        | `jstl`          | template file extension                                                                                                                  |
-| **`helpers `**  | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates                                                                                       |
-| **`matter `**   | `Object` | ✖        | `{}`            | [Options](https://github.com/jonschlinkert/gray-matter#options) to pass to [`gray-matter`](https://github.com/jonschlinkert/gray-matter) |
+| name            | type     | required | default         | description                                        |
+|-----------------|----------|----------|-----------------|----------------------------------------------------|
+| **`root`**      | `String` | ✖        | `process.cwd()` | path to look for template files                    |
+| **`extension`** | `String` | ✖        | `jstl`          | template file extension                            |
+| **`helpers `**  | `Object` | ✖        | `{}`            | `key => function` helpers map to pass to templates |
+| **`matter `**   | `Object` | ✖        | `{}`            | [Options][] to pass to [`gray-matter`][]           |
 
 ###### example:
 
@@ -350,6 +350,10 @@ const engine = new Engine({ root: 'templates' })
 engine.render('a-template') // => ./templates/a-template.jstl
 engine.render('nested/template', { foo: 'bar' }) // => ./templates/nested/template.jstl
 ```
+
+  [Template Literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+  [Options]: https://github.com/jonschlinkert/gray-matter#options
+  [`gray-matter`]: https://github.com/jonschlinkert/gray-matter
 
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
