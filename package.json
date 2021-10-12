@@ -8,8 +8,14 @@
     "type": "git",
     "url": "https://github.com/ahmadnassri/node-template-literals-engine.git"
   },
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/node-template-literals-engine/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/ahmadnassri"
+  },
   "license": "MIT",
-  "main": "lib/index.js",
   "keywords": [
     "oas",
     "request"
@@ -20,16 +26,15 @@
   "files": [
     "lib"
   ],
-  "bugs": {
-    "url": "https://github.com/ahmadnassri/node-template-literals-engine/issues"
-  },
+  "main": "lib/index.js",
   "scripts": {
     "test": "tap test --no-coverage",
     "test:watch": "tap test --watch",
-    "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
+    "test:ci": "tap test --100",
+    "test:report": "opener coverage/lcov-report/index.html"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^15.0.9"
   },
   "dependencies": {
     "gray-matter": "^4.0.2"
