@@ -21,6 +21,12 @@ Features:
 -   Fast: Templates are cached by default
 -   Extensible: extensible with custom helpers
 
+## Installation
+
+```bash
+$ npm install @ahmadnassri/template-literals-engine
+```
+
 ## How
 
 ### Usage
